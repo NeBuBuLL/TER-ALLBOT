@@ -13,12 +13,14 @@ https://github.com/kchua/handful-of-trials
 
 ## Modelisation avec mujoco
  - Lien utile pour xml:
-  http://www.mujoco.org/forum/index.php?resources/dogbot-quadruped-from-react-robotics.23/
-  https://github.com/deepmind/dm_control/blob/master/dm_control/suite/quadruped.xml
+  - http://www.mujoco.org/forum/index.php?resources/dogbot-quadruped-from-react-robotics.23/
+  - https://github.com/deepmind/dm_control/blob/master/dm_control/suite/quadruped.xml
+  
+  
 ### Degree of freedom
 
   - Yaw : 180 degree (Vertical, 2nd joint)
     - from Pi/2 to 3Pi/2
   - Pitch : 135 degree (Horizontal, 1st joint) 
-    - from 0 to 7 Pi/4
+    - from 0 to 7Pi/4
   - Roll : Not use for our robot
