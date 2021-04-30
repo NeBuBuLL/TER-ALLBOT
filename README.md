@@ -10,7 +10,11 @@ https://github.com/kchua/handful-of-trials
 
 
 # Pour le robot sur mujoco
- 
+
+## Modelisation avec mujoco
+ - Lien utile pour xml:
+  http://www.mujoco.org/forum/index.php?resources/dogbot-quadruped-from-react-robotics.23/
+  https://github.com/deepmind/dm_control/blob/master/dm_control/suite/quadruped.xml
 ### Degree of freedom
 
   - Yaw : 180 degree (Vertical, 2nd joint)
