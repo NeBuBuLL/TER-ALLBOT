@@ -6,16 +6,42 @@
   </visual>
 
   <asset>
-    <hfield name="terrain" ncol="201" nrow="201" size="30 30 5 .1"/>
-  </asset>
 
-  <!--<asset>
-    <mesh file="D:\coursMaster\coursMaster1S2\TER-ALLBOT\modele3D\torso.stl"/>
-  </asset>-->
-  
-  <!--<asset>
-    <mesh file="D:\coursMaster\coursMaster1S2\TER-ALLBOT\modele3D\files\FLAT_FOOT.stl"/>
-  </asset>-->
+    <hfield name="terrain" ncol="201" nrow="201" size="30 30 5 .1"/>
+
+    <!--load the main body part of the robot-->
+    <mesh scale="0.05 0.05 0.05" file="modele3D\files\BACKBONE.stl"/>
+    <mesh scale="0.05 0.05 0.05" file="modele3D\files\PCB_MOUNT_-_RASPBERRY_PI_B+.stl"/>
+
+    <!--load the first leg of the robot-->
+    <mesh name="FL_foot" scale="0.05 0.05 0.05" file="modele3D\files\FLAT_FOOT.stl"/>
+    <mesh name="FL_servo3" scale="0.05 0.05 0.05" file="modele3D\files\SERVO_MOUNT.stl"/>
+    <mesh name="FL_arm3" scale="0.05 0.05 0.05" file="modele3D\files\SWING_ARM.stl"/>
+    <mesh name="FL_servo4" scale="0.05 0.05 0.05" file="modele3D\files\SERVO_MOUNT.stl"/>
+    <mesh name="FL_arm4" scale="0.05 0.05 0.05" file="modele3D\files\SWING_ARM.stl"/>
+
+    <!--load the second leg of the robot-->
+    <mesh name="FR_foot" scale="0.05 0.05 0.05" file="modele3D\files\FLAT_FOOT.stl"/>
+    <mesh name="FR_servo1" scale="0.05 0.05 0.05" file="modele3D\files\SERVO_MOUNT.stl"/>
+    <mesh name="FR_arm1" scale="0.05 0.05 0.05" file="modele3D\files\SWING_ARM.stl"/>
+    <mesh name="FR_servo2" scale="0.05 0.05 0.05" file="modele3D\files\SERVO_MOUNT.stl"/>
+    <mesh name="FR_arm2" scale="0.05 0.05 0.05" file="modele3D\files\SWING_ARM.stl"/>
+
+    <!--load the third leg of the robot-->
+    <mesh name="BL_foot" scale="0.05 0.05 0.05" file="modele3D\files\FLAT_FOOT.stl"/>
+    <mesh name="BL_servo7" scale="0.05 0.05 0.05" file="modele3D\files\SERVO_MOUNT.stl"/>
+    <mesh name="BL_arm7" scale="0.05 0.05 0.05" file="modele3D\files\SWING_ARM.stl"/>
+    <mesh name="BL_servo8" scale="0.05 0.05 0.05" file="modele3D\files\SERVO_MOUNT.stl"/>
+    <mesh name="BL_arm8" scale="0.05 0.05 0.05" file="modele3D\files\SWING_ARM.stl"/>
+
+    <!--load the fourth leg of the robot-->
+    <mesh name="BR_foot" scale="0.05 0.05 0.05" file="modele3D\files\FLAT_FOOT.stl"/>
+    <mesh name="BR_servo5" scale="0.05 0.05 0.05" file="modele3D\files\SERVO_MOUNT.stl"/>
+    <mesh name="BR_arm5" scale="0.05 0.05 0.05" file="modele3D\files\SWING_ARM.stl"/>
+    <mesh name="BR_servo6" scale="0.05 0.05 0.05" file="modele3D\files\SERVO_MOUNT.stl"/>
+    <mesh name="BR_arm6" scale="0.05 0.05 0.05" file="modele3D\files\SWING_ARM.stl"/>
+
+  </asset>
 
   <option timestep=".005"/>
 
@@ -81,11 +107,125 @@
     <site name="target" type="cylinder" size=".4 .06" pos="0 0 .05"/>-->
     <geom name="terrain" type="hfield" hfield="terrain" rgba=".2 .3 .4 1" pos="0 0 -.01"/>-->
   
-    <!--<body pos="5 5 5"/>
+    <!--=======================================================================================
+                                    DISPLAY MESHES
+        =======================================================================================-->
+
+    <!--backbone / support -->
+    <body pos="5 0 0.6" euler="180 0 0">
       <joint type="hinge" axis="1 0 0"/>
-      <geom  type="mesh" mesh="backbone"/>
-    </body>-->
+      <geom  type="mesh" mesh="BACKBONE"/>
+    </body>
+
+    <body pos="-7 0 2">
+      <joint type="hinge" axis="1 0 0"/>
+      <geom  type="mesh" mesh="PCB_MOUNT_-_RASPBERRY_PI_B+"/>
+    </body>
+
+    <!--FR leg-->
+    <body pos="0 0 10">
+      <joint type="hinge" axis="1 0 0"/>
+      <geom  type="mesh" mesh="FR_foot"/>
+    </body>
+
+    <body pos="0 10 10">
+      <joint type="hinge" axis="1 0 0"/>
+      <geom  type="mesh" mesh="FR_servo1"/>
+    </body>
+
+    <body pos="0 15 5">
+      <joint type="hinge" axis="1 0 0"/>
+      <geom  type="mesh" mesh="FR_arm1"/>
+    </body>
+
+    <body pos="0 5 10">
+      <joint type="hinge" axis="1 0 0"/>
+      <geom  type="mesh" mesh="FR_servo2"/>
+    </body>
+
+    <body pos="0 10 5">
+      <joint type="hinge" axis="1 0 0"/>
+      <geom  type="mesh" mesh="FR_arm2"/>
+    </body>
     
+    <!--FL leg-->
+    <body pos="5 0 10">
+      <joint type="hinge" axis="1 0 0"/>
+      <geom  type="mesh" mesh="FL_foot"/>
+    </body>
+
+    <body pos="5 10 10">
+      <joint type="hinge" axis="1 0 0"/>
+      <geom  type="mesh" mesh="FL_servo3"/>
+    </body>
+
+    <body pos="5 15 5">
+      <joint type="hinge" axis="1 0 0"/>
+      <geom  type="mesh" mesh="FL_arm3"/>
+    </body>
+
+    <body pos="5 5 10">
+      <joint type="hinge" axis="1 0 0"/>
+      <geom  type="mesh" mesh="FL_servo4"/>
+    </body>
+
+    <body pos="5 10 5">
+      <joint type="hinge" axis="1 0 0"/>
+      <geom  type="mesh" mesh="FL_arm4"/>
+    </body>
+
+    <!--BR leg-->
+    <body pos="10 0 10">
+      <joint type="hinge" axis="1 0 0"/>
+      <geom  type="mesh" mesh="BR_foot"/>
+    </body>
+
+    <body pos="10 10 10">
+      <joint type="hinge" axis="1 0 0"/>
+      <geom  type="mesh" mesh="BR_servo5"/>
+    </body>
+
+    <body pos="10 15 5">
+      <joint type="hinge" axis="1 0 0"/>
+      <geom  type="mesh" mesh="BR_arm5"/>
+    </body>
+
+    <body pos="10 5 10">
+      <joint type="hinge" axis="1 0 0"/>
+      <geom  type="mesh" mesh="BR_servo6"/>
+    </body>
+
+    <body pos="10 10 5">
+      <joint type="hinge" axis="1 0 0"/>
+      <geom  type="mesh" mesh="BR_arm6"/>
+    </body>
+
+    <!--BL leg-->
+    <body pos="15 0 10">
+      <joint type="hinge" axis="1 0 0"/>
+      <geom  type="mesh" mesh="BL_foot"/>
+    </body>
+
+    <body pos="15 10 10">
+      <joint type="hinge" axis="1 0 0"/>
+      <geom  type="mesh" mesh="BL_servo7"/>
+    </body>
+
+    <body pos="15 15 5">
+      <joint type="hinge" axis="1 0 0"/>
+      <geom  type="mesh" mesh="BL_arm7"/>
+    </body>
+
+    <body pos="15 5 10">
+      <joint type="hinge" axis="1 0 0"/>
+      <geom  type="mesh" mesh="BL_servo8"/>
+    </body>
+
+    <body pos="15 10 5">
+      <joint type="hinge" axis="1 0 0"/>
+      <geom  type="mesh" mesh="BL_arm8"/>
+    </body>
+
     <camera name="global"  pos="-10 10 10" xyaxes="-1 -1 0 1 0 1" mode="trackcom"/>
     <body name="torso" childclass="body" pos="0 0 0.57">
       <freejoint name="root"/>
