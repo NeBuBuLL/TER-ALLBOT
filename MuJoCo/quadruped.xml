@@ -10,36 +10,36 @@
     <hfield name="terrain" ncol="201" nrow="201" size="30 30 5 .1"/>
 
     <!--load the main body part of the robot-->
-    <mesh scale="0.05 0.05 0.05" file="modele3D\files\BACKBONE.stl"/>
-    <mesh scale="0.05 0.05 0.05" file="modele3D\files\PCB_MOUNT_-_RASPBERRY_PI_B+.stl"/>
+    <mesh scale="0.05 0.05 0.05" file="torso.stl"/>
+    <mesh scale="0.05 0.05 0.05" file="PCB_MOUNT_-_RASPBERRY_PI_B+.stl"/>
 
     <!--load the first leg of the robot-->
-    <mesh name="FL_foot" scale="0.05 0.05 0.05" file="modele3D\files\FLAT_FOOT.stl"/>
-    <mesh name="FL_servo3" scale="0.05 0.05 0.05" file="modele3D\files\SERVO_MOUNT.stl"/>
-    <mesh name="FL_arm3" scale="0.05 0.05 0.05" file="modele3D\files\SWING_ARM.stl"/>
-    <mesh name="FL_servo4" scale="0.05 0.05 0.05" file="modele3D\files\SERVO_MOUNT.stl"/>
-    <mesh name="FL_arm4" scale="0.05 0.05 0.05" file="modele3D\files\SWING_ARM.stl"/>
+    <mesh name="FL_foot" scale="0.05 0.05 0.05" file="FLAT_FOOT.stl"/>
+    <mesh name="FL_servo3" scale="0.05 0.05 0.05" file="SERVO_MOUNT.stl"/>
+    <mesh name="FL_arm3" scale="0.05 0.05 0.05" file="SWING_ARM.stl"/>
+    <mesh name="FL_servo4" scale="0.05 0.05 0.05" file="SERVO_MOUNT.stl"/>
+    <mesh name="FL_arm4" scale="0.05 0.05 0.05" file="SWING_ARM.stl"/>
 
     <!--load the second leg of the robot-->
-    <mesh name="FR_foot" scale="0.05 0.05 0.05" file="modele3D\files\FLAT_FOOT.stl"/>
-    <mesh name="FR_servo1" scale="0.05 0.05 0.05" file="modele3D\files\SERVO_MOUNT.stl"/>
-    <mesh name="FR_arm1" scale="0.05 0.05 0.05" file="modele3D\files\SWING_ARM.stl"/>
-    <mesh name="FR_servo2" scale="0.05 0.05 0.05" file="modele3D\files\SERVO_MOUNT.stl"/>
-    <mesh name="FR_arm2" scale="0.05 0.05 0.05" file="modele3D\files\SWING_ARM.stl"/>
+    <mesh name="FR_foot" scale="0.05 0.05 0.05" file="FLAT_FOOT.stl"/>
+    <mesh name="FR_servo1" scale="0.05 0.05 0.05" file="SERVO_MOUNT.stl"/>
+    <mesh name="FR_arm1" scale="0.05 0.05 0.05" file="SWING_ARM.stl"/>
+    <mesh name="FR_servo2" scale="0.05 0.05 0.05" file="SERVO_MOUNT.stl"/>
+    <mesh name="FR_arm2" scale="0.05 0.05 0.05" file="SWING_ARM.stl"/>
 
     <!--load the third leg of the robot-->
-    <mesh name="BL_foot" scale="0.05 0.05 0.05" file="modele3D\files\FLAT_FOOT.stl"/>
-    <mesh name="BL_servo7" scale="0.05 0.05 0.05" file="modele3D\files\SERVO_MOUNT.stl"/>
-    <mesh name="BL_arm7" scale="0.05 0.05 0.05" file="modele3D\files\SWING_ARM.stl"/>
-    <mesh name="BL_servo8" scale="0.05 0.05 0.05" file="modele3D\files\SERVO_MOUNT.stl"/>
-    <mesh name="BL_arm8" scale="0.05 0.05 0.05" file="modele3D\files\SWING_ARM.stl"/>
+    <mesh name="BL_foot" scale="0.05 0.05 0.05" file="FLAT_FOOT.stl"/>
+    <mesh name="BL_servo7" scale="0.05 0.05 0.05" file="SERVO_MOUNT.stl"/>
+    <mesh name="BL_arm7" scale="0.05 0.05 0.05" file="SWING_ARM.stl"/>
+    <mesh name="BL_servo8" scale="0.05 0.05 0.05" file="SERVO_MOUNT.stl"/>
+    <mesh name="BL_arm8" scale="0.05 0.05 0.05" file="SWING_ARM.stl"/>
 
     <!--load the fourth leg of the robot-->
-    <mesh name="BR_foot" scale="0.05 0.05 0.05" file="modele3D\files\FLAT_FOOT.stl"/>
-    <mesh name="BR_servo5" scale="0.05 0.05 0.05" file="modele3D\files\SERVO_MOUNT.stl"/>
-    <mesh name="BR_arm5" scale="0.05 0.05 0.05" file="modele3D\files\SWING_ARM.stl"/>
-    <mesh name="BR_servo6" scale="0.05 0.05 0.05" file="modele3D\files\SERVO_MOUNT.stl"/>
-    <mesh name="BR_arm6" scale="0.05 0.05 0.05" file="modele3D\files\SWING_ARM.stl"/>
+    <mesh name="BR_foot" scale="0.05 0.05 0.05" file="FLAT_FOOT.stl"/>
+    <mesh name="BR_servo5" scale="0.05 0.05 0.05" file="SERVO_MOUNT.stl"/>
+    <mesh name="BR_arm5" scale="0.05 0.05 0.05" file="SWING_ARM.stl"/>
+    <mesh name="BR_servo6" scale="0.05 0.05 0.05" file="SERVO_MOUNT.stl"/>
+    <mesh name="BR_arm6" scale="0.05 0.05 0.05" file="SWING_ARM.stl"/>
 
   </asset>
 
@@ -114,7 +114,7 @@
     <!--backbone / support -->
     <body pos="5 0 0.6" euler="180 0 0">
       <joint type="hinge" axis="1 0 0"/>
-      <geom  type="mesh" mesh="BACKBONE"/>
+      <geom  type="mesh" mesh="torso"/>
     </body>
 
     <body pos="-7 0 2">
