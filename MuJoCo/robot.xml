@@ -10,7 +10,7 @@
     <hfield name="terrain" ncol="201" nrow="201" size="30 30 5 .1"/>
 
     <!--load the main body part of the robot-->
-    <mesh name="torso" scale="0.05 0.05 0.05" file="C:\Users\nebub\Documents\git\TER-ALLBOT\modele3D\torso.stl"/>
+    <mesh name="torso" scale="0.05 0.05 0.05"  file="C:\Users\nebub\Documents\git\TER-ALLBOT\modele3D\torso.stl"/>
 
     <!--load the first leg of the robot-->
     <mesh name="FL_leg" scale="0.05 0.05 0.05" file="C:\Users\nebub\Documents\git\TER-ALLBOT\modele3D\FL_Leg.stl"/>
@@ -95,42 +95,45 @@
         =======================================================================================-->
 
     <!--body -->
-    <body>
-        <joint name="torso" type="hinge" axis="1 0 0"/>
+    <body name="TORSO">
+        <joint armature="0" damping="0" limited="false" name="root" type="free" pos="0 0 0"/>
         <geom type="mesh" mesh="torso"/>
         <!--FR leg-->
-        <body>
-            <joint name="hip_fr_leg" type="hinge" axis="1 0 0"/>
+        <body name="FR_LEG">
+            <joint name="hip_fr_leg" type="hinge" axis="1 0 0" pos="0 0 0"/>
+             <!-- replace by: 
+                <joint name="hip_fr_leg" type="hinge" class="pitch" or "yaw" />
+             -->
             <geom type="mesh" mesh="FR_leg"/>
             <body>
-                <joint name="hip_fr_foot" type="hinge" axis="1 0 0"/>
+                <joint name="hip_fr_foot" type="hinge" axis="1 0 0" pos="0 0 0"/>
                 <geom type="mesh" mesh="FR_foot"/>
             </body>
         </body>
         <!--FL leg-->
-        <body>
-            <joint name="hip_fl_leg" type="hinge" axis="1 0 0"/>
+        <body name="FL_LEG">
+            <joint name="hip_fl_leg" type="hinge" axis="1 0 0" pos="0 0 0"/>
             <geom type="mesh" mesh="FL_leg"/>
             <body>
-                <joint name="hip_fl_foot" type="hinge" axis="1 0 0"/>
+                <joint name="hip_fl_foot" type="hinge" axis="1 0 0" pos="0 0 0"/>
                 <geom type="mesh" mesh="FL_foot"/>
             </body>
         </body>
         <!--BR leg-->
-        <body>
-            <joint name="hip_br_leg" type="hinge" axis="1 0 0"/>
+        <body name="BR_LEG">
+            <joint name="hip_br_leg" type="hinge" axis="1 0 0" pos="0 0 0"/>
             <geom type="mesh" mesh="BR_leg"/>
             <body>
-                <joint name="hip_br_foot" type="hinge" axis="1 0 0"/>
+                <joint name="hip_br_foot" type="hinge" axis="1 0 0" pos="0 0 0"/>
                 <geom type="mesh" mesh="BR_foot"/>
             </body>
         </body>
         <!--BL leg-->
-        <body>
-            <joint name="hip_bl_leg" type="hinge" axis="1 0 0"/>
+        <body name="BL_LEG">
+            <joint name="hip_bl_leg" type="hinge" axis="1 0 0" pos="0 0 0"/>
             <geom type="mesh" mesh="BL_leg"/>
             <body>
-                <joint name="hip_bl_foot" type="hinge" axis="1 0 0"/>
+                <joint name="hip_bl_foot" type="hinge" axis="1 0 0" pos="0 0 0"/>
                 <geom type="mesh" mesh="BL_foot"/>
             </body>
         </body>
@@ -143,35 +146,20 @@
   </worldbody>
 
   <tendon>
-    <fixed name="coupling_front_left">
-        <joint joint="torso"            coef=".333"/>
-        <joint joint="hip_fl_leg"       coef=".333"/>
-        <joint joint="hip_fl_foot"      coef=".333"/>
-    </fixed>
-
-    <fixed name="coupling_front_right">
-        <joint joint="torso"            coef=".333"/>
-        <joint joint="hip_fr_leg"       coef=".333"/>
-        <joint joint="hip_fr_foot"      coef=".333"/>
-    </fixed>
-
-    <fixed name="coupling_back_left">
-        <joint joint="torso"            coef=".333"/>
-        <joint joint="hip_bl_leg"       coef=".333"/>
-        <joint joint="hip_bl_foot"      coef=".333"/>
-    </fixed>
-
-    <fixed name="coupling_back_right">
-        <joint joint="torso"            coef=".333"/>
-        <joint joint="hip_br_leg"       coef=".333"/>
-        <joint joint="hip_br_foot"      coef=".333"/>
-    </fixed>
   </tendon>
 
   <equality>
   </equality>
 
   <actuator>
+        <motor ctrllimited="true" ctrlrange="-1.0 1.0" joint="hip_fl_leg" gear="150"/>
+        <motor ctrllimited="true" ctrlrange="-1.0 1.0" joint="hip_fl_foot" gear="150"/>
+        <motor ctrllimited="true" ctrlrange="-1.0 1.0" joint="hip_fr_leg" gear="150"/>
+        <motor ctrllimited="true" ctrlrange="-1.0 1.0" joint="hip_fr_foot" gear="150"/>
+        <motor ctrllimited="true" ctrlrange="-1.0 1.0" joint="hip_br_leg" gear="150"/>
+        <motor ctrllimited="true" ctrlrange="-1.0 1.0" joint="hip_br_foot" gear="150"/>
+        <motor ctrllimited="true" ctrlrange="-1.0 1.0" joint="hip_bl_leg" gear="150"/>
+        <motor ctrllimited="true" ctrlrange="-1.0 1.0" joint="hip_bl_foot" gear="150"/>
   </actuator>
 
   <sensor>
