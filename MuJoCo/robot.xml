@@ -1,0 +1,157 @@
+<mujoco model="quadruped">
+
+  <visual>
+    <rgba rangefinder="1 1 0.1 0.1"/>
+    <map znear=".005" zfar="20"/>
+  </visual>
+  <asset>
+
+    <hfield name="terrain" ncol="201" nrow="201" size="30 30 5 .1"/>
+
+    <!--load the main body part of the robot-->
+    <mesh name="torso" scale="0.05 0.05 0.05"  file="..\modele3D\torso.stl"/>
+
+    <!--load the first leg of the robot-->
+    <mesh name="FL_leg" scale="0.05 0.05 0.05" file="..\modele3D\FL_Leg.stl"/>
+    <mesh name="FL_foot" scale="0.05 0.05 0.05" file="..\modele3D\FL_Foot.stl"/>
+    
+
+    <!--load the second leg of the robot-->
+    <mesh name="FR_leg" scale="0.05 0.05 0.05" file="..\modele3D\FR_Leg.stl"/>
+    <mesh name="FR_foot" scale="0.05 0.05 0.05" file="..\modele3D\FR_Foot.stl"/>
+
+    <!--load the third leg of the robot-->
+    <mesh name="BL_leg" scale="0.05 0.05 0.05" file="..\modele3D\BL_Leg.stl"/>
+    <mesh name="BL_foot" scale="0.05 0.05 0.05" file="..\modele3D\BL_Foot.stl"/>
+    
+    <!--load the fourth leg of the robot-->
+    <mesh name="BR_leg" scale="0.05 0.05 0.05" file="..\modele3D\BR_Leg.stl"/>
+    <mesh name="BR_foot" scale="0.05 0.05 0.05" file="..\modele3D\BR_Foot.stl" />
+
+  </asset>
+
+  <option timestep=".005"/>
+  <default>
+   <geom solimp=".9 .99 .003" solref=".01 1"/>
+
+   <default class="body">
+     <geom  type="capsule" size=".08" condim="1" density="500"/>
+     <joint type="hinge" damping="30" armature=".01"
+            limited="true" solimplimit="0 .99 .01"/>
+
+     <default class="knee">
+       <joint range="-90 90"/>
+     </default>
+    <default class="front_shoulder">
+       <joint range="-45 90"/>
+     </default>
+
+     <default class="back_shoulder">
+       <joint range="-90 45"/>
+     </default>
+
+   <default class="wall">
+     <geom type="plane"/>
+   </default>
+
+   <default class="coupling">
+     <equality solimp="0.95 0.99 0.01" solref=".005 .5"/>
+   </default>
+
+   <general ctrllimited="true" gainprm="1000" biasprm="0 -1000" biastype="affine" dyntype="filter" dynprm=".1"/>
+   <default class="yaw_act">
+     <general ctrlrange="-1 1"/>
+   </default>
+   <default class="lift_act">
+     <general ctrlrange="-1 1.1"/>
+   </default>
+   <default class="extend_act">
+     <general ctrlrange="-.8 .8"/>
+    </default>
+  </default>
+  </default>
+
+
+  <worldbody>
+    <light name="light" pos="0 0 100" mode="trackcom"/>
+    <geom name="floor" type="plane" size="15 15 .5"/>
+    <geom name="terrain" type="hfield" hfield="terrain" rgba=".2 .3 .4 1" pos="0 0 -.01"/>
+  
+    <!--=======================================================================================
+                                    DISPLAY MESHES
+        =======================================================================================-->
+
+    <!--body -->
+    <body name="TORSO">
+        <joint group="0" armature="0" damping="0" limited="false" name="root" type="free" pos="0 0 0"/>
+        <geom type="mesh" mesh="torso"/>
+        <!--FR leg-->
+        <body name="FR_LEG">
+            <joint group="1" name="hip_fr_leg" type="hinge" axis="0 0 1" class="front_shoulder" pos="1.98 -1.35 1.5"/>
+             <!-- replace by: 
+                <joint name="hip_fr_leg" type="hinge" class="pitch" or "yaw" />
+             -->
+            <geom type="mesh" mesh="FR_leg"/>
+            <body>
+                <joint group="2" name="hip_fr_foot" type="hinge" axis="1 0 0" class="knee" pos="1.75 -3.3 2"/>
+                <geom type="mesh" mesh="FR_foot"/>
+            </body>
+        </body>
+        <!--FL leg-->
+        <body name="FL_LEG">
+            <joint group="1" name="hip_fl_leg" type="hinge" axis="0 0 1" class="back_shoulder" pos="1.98 1.35 1.5"/>
+            <geom type="mesh" mesh="FL_leg"/>
+            <body>
+                <joint group="2" name="hip_fl_foot" type="hinge" axis="1 0 0" class="knee" pos="1.75 3.3 2"/>
+                <geom type="mesh" mesh="FL_foot"/>
+            </body>
+        </body>
+        <!--BR leg-->
+        <body name="BR_LEG">
+            <joint group="1" name="hip_br_leg" type="hinge" axis="0 0 1" class="back_shoulder" pos="-1.98 -1.35 1.5"/>
+            <geom type="mesh" mesh="BR_leg"/>
+            <body>
+                <joint group="2" name="hip_br_foot" type="hinge" axis="-1 0 0" class="knee" pos="-1.75 -3.3 2"/>
+                <geom type="mesh" mesh="BR_foot"/>
+            </body>
+        </body>
+        <!--BL leg-->
+        <body name="BL_LEG">
+            <joint group="1" name="hip_bl_leg" type="hinge" axis="0 0 1" class="front_shoulder" pos="-1.98 1.35 1.5"/>
+            <geom type="mesh" mesh="BL_leg"/>
+            <body>
+                <joint group="2" name="hip_bl_foot" type="hinge" axis="-1 0 0"  class="knee" pos="-1.75 3.3 2"/>
+                <geom type="mesh" mesh="BL_foot"/>
+            </body>
+        </body>
+    </body>
+
+    <camera name="global"  pos="-10 10 10" xyaxes="-1 -1 0 1 0 1" mode="trackcom"/>
+    
+
+
+  </worldbody>
+
+  <tendon>
+  </tendon>
+
+  <equality>
+  </equality>
+
+  <actuator>
+        <motor ctrllimited="true" ctrlrange="-1.0 1.0" joint="hip_fl_leg" gear="150"/>
+        <motor ctrllimited="true" ctrlrange="-1.0 1.0" joint="hip_fl_foot" gear="150"/>
+        <motor ctrllimited="true" ctrlrange="-1.0 1.0" joint="hip_fr_leg" gear="150"/>
+        <motor ctrllimited="true" ctrlrange="-1.0 1.0" joint="hip_fr_foot" gear="150"/>
+        <motor ctrllimited="true" ctrlrange="-1.0 1.0" joint="hip_br_leg" gear="150"/>
+        <motor ctrllimited="true" ctrlrange="-1.0 1.0" joint="hip_br_foot" gear="150"/>
+        <motor ctrllimited="true" ctrlrange="-1.0 1.0" joint="hip_bl_leg" gear="150"/>
+        <motor ctrllimited="true" ctrlrange="-1.0 1.0" joint="hip_bl_foot" gear="150"/>
+  </actuator>
+
+  <sensor>
+  </sensor>
+
+
+</mujoco>
+
