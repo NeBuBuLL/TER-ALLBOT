@@ -31,57 +31,44 @@
   </asset>
 
   <option timestep=".005"/>
-
   <default>
-    <geom solimp=".9 .99 .003" solref=".01 1"/>
-    
-    <default class="body">
-      <geom  type="capsule" size=".08" condim="1" density="500"/>
-      <joint type="hinge" damping="30" armature=".01"
-             limited="true" solimplimit="0 .99 .01"/>
-      <default class="hip">
-        <default class="yaw">
-          <joint axis="0 0 1" range="-50 50"/>
-        </default>
-        <default class="pitch">
-          <joint axis="0 1 0" range="-20 60"/>
-        </default>
-        <geom type="box" size=".3 .2 .42" pos="0 0 0.3"/>
-      </default>
-      <default class="knee">
-        <joint axis="0 1 0" range="-60 50"/>
-        <geom type="box" size=".37 .42 .2"/>
-      </default>
-      <default class="ankle">
-        <joint axis="0 1 0" range="-45 55"/>
-        <geom type="box" size=".37 .42 .2"/>
-      </default>
-      <default class="toe">
-        <geom type="sphere" size=".08" friction="1.5"/>
-        <site type="sphere" size=".084"  group="4"/>
-      </default>
-    </default>
-    <default class="rangefinder">
-      <site type="capsule" size=".005 .1" group="4"/>
-    </default>
-    <default class="wall">
-      <geom type="plane"/>
-    </default>
+   <geom solimp=".9 .99 .003" solref=".01 1"/>
 
-    <default class="coupling">
-      <equality solimp="0.95 0.99 0.01" solref=".005 .5"/>
-    </default>
+   <default class="body">
+     <geom  type="capsule" size=".08" condim="1" density="500"/>
+     <joint type="hinge" damping="30" armature=".01"
+            limited="true" solimplimit="0 .99 .01"/>
 
-    <general ctrllimited="true" gainprm="1000" biasprm="0 -1000" biastype="affine" dyntype="filter" dynprm=".1"/>
-    <default class="yaw_act">
-      <general ctrlrange="-1 1"/>
+     <default class="knee">
+       <joint range="-90 90"/>
+     </default>
+    <default class="front_shoulder">
+       <joint range="-45 90"/>
+     </default>
+
+     <default class="back_shoulder">
+       <joint range="-90 45"/>
+     </default>
+
+   <default class="wall">
+     <geom type="plane"/>
+   </default>
+
+   <default class="coupling">
+     <equality solimp="0.95 0.99 0.01" solref=".005 .5"/>
+   </default>
+
+   <general ctrllimited="true" gainprm="1000" biasprm="0 -1000" biastype="affine" dyntype="filter" dynprm=".1"/>
+   <default class="yaw_act">
+     <general ctrlrange="-1 1"/>
+   </default>
+   <default class="lift_act">
+     <general ctrlrange="-1 1.1"/>
+   </default>
+   <default class="extend_act">
+     <general ctrlrange="-.8 .8"/>
     </default>
-    <default class="lift_act">
-      <general ctrlrange="-1 1.1"/>
-    </default>
-    <default class="extend_act">
-      <general ctrlrange="-.8 .8"/>
-    </default>
+  </default>
   </default>
 
 
@@ -100,40 +87,40 @@
         <geom type="mesh" mesh="torso"/>
         <!--FR leg-->
         <body name="FR_LEG">
-            <joint group="1" name="hip_fr_leg" type="hinge" axis="0 0 1" pos="1.98 -1.35 1.75"/>
+            <joint group="1" name="hip_fr_leg" type="hinge" axis="0 0 1" class="front_shoulder" pos="1.98 -1.35 1.5"/>
              <!-- replace by: 
                 <joint name="hip_fr_leg" type="hinge" class="pitch" or "yaw" />
              -->
             <geom type="mesh" mesh="FR_leg"/>
             <body>
-                <joint group="2" name="hip_fr_foot" type="hinge" axis="1 0 0" pos="2 -3.3 2"/>
+                <joint group="2" name="hip_fr_foot" type="hinge" axis="1 0 0" class="knee" pos="1.75 -3.3 2"/>
                 <geom type="mesh" mesh="FR_foot"/>
             </body>
         </body>
         <!--FL leg-->
         <body name="FL_LEG">
-            <joint group="1" name="hip_fl_leg" type="hinge" axis="0 0 1" pos="1.98 1.35 1.75"/>
+            <joint group="1" name="hip_fl_leg" type="hinge" axis="0 0 1" class="back_shoulder" pos="1.98 1.35 1.5"/>
             <geom type="mesh" mesh="FL_leg"/>
             <body>
-                <joint group="2" name="hip_fl_foot" type="hinge" axis="1 0 0" pos="2 3.3 2"/>
+                <joint group="2" name="hip_fl_foot" type="hinge" axis="1 0 0" class="knee" pos="1.75 3.3 2"/>
                 <geom type="mesh" mesh="FL_foot"/>
             </body>
         </body>
         <!--BR leg-->
         <body name="BR_LEG">
-            <joint group="1" name="hip_br_leg" type="hinge" axis="0 0 1" pos="-1.98 -1.35 1.75"/>
+            <joint group="1" name="hip_br_leg" type="hinge" axis="0 0 1" class="back_shoulder" pos="-1.98 -1.35 1.5"/>
             <geom type="mesh" mesh="BR_leg"/>
             <body>
-                <joint group="2" name="hip_br_foot" type="hinge" axis="-1 0 0" pos="-2 -3.3 2"/>
+                <joint group="2" name="hip_br_foot" type="hinge" axis="-1 0 0" class="knee" pos="-1.75 -3.3 2"/>
                 <geom type="mesh" mesh="BR_foot"/>
             </body>
         </body>
         <!--BL leg-->
         <body name="BL_LEG">
-            <joint group="1" name="hip_bl_leg" type="hinge" axis="0 0 1" pos="-1.98 1.35 1.75"/>
+            <joint group="1" name="hip_bl_leg" type="hinge" axis="0 0 1" class="front_shoulder" pos="-1.98 1.35 1.5"/>
             <geom type="mesh" mesh="BL_leg"/>
             <body>
-                <joint group="2" name="hip_bl_foot" type="hinge" axis="-1 0 0" pos="-2 3.3 2"/>
+                <joint group="2" name="hip_bl_foot" type="hinge" axis="-1 0 0"  class="knee" pos="-1.75 3.3 2"/>
                 <geom type="mesh" mesh="BL_foot"/>
             </body>
         </body>
