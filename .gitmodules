@@ -1,3 +1,0 @@
-[submodule "MuJoCo/simulation"]
-	path = MuJoCo/simulation
-	url = https://github.com/kchua/handful-of-trials
