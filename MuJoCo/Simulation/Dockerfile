@@ -8,8 +8,13 @@ RUN apt-get -y install python3 python3-pip python3-dev python3-tk
 RUN apt-get -y install libglu1-mesa libxi-dev libxmu-dev libglu1-mesa-dev
 
 # Install basic libraries
-RUN pip3 install --upgrade pip
-RUN pip3 install numpy tensorflow-gpu==1.9 matplotlib scipy scikit-learn future
+RUN pip3 install --upgrade "pip < 20.1"
+RUN pip3 install numpy 
+RUN pip3 install tensorflow-gpu==1.9 
+RUN pip3 install matplotlib 
+RUN pip3 install scipy 
+RUN pip3 install scikit-learn 
+RUN pip3 install future
 
 # Install MuJoCo + OpenAI gym
 RUN pip3 install gym==0.9.4
