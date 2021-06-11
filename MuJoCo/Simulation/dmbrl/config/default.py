@@ -9,7 +9,11 @@ import importlib.util
 import gpflow
 from dotmap import DotMap
 
-from ...dmbrl.modeling.models import NN, BNN, TFGP
+# test chemin relatif 1
+# from ...dmbrl.modeling.models import NN, BNN, TFGP
+
+# test chemin relatif numéro 2
+from mujoco.Simulation.dmbrl.modeling.models import NN, BNN, TFGP
 
 
 def create_config(env_name, ctrl_type, ctrl_args, overrides, logdir):

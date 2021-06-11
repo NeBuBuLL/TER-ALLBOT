@@ -9,9 +9,15 @@ import numpy as np
 from tqdm import trange
 from scipy.io import savemat, loadmat
 
-from ....dmbrl.modeling.utils import TensorStandardScaler
-from ....dmbrl.modeling.layers import FC
-from ....dmbrl.misc.DotmapUtils import *
+# test chemin relatif numéro 1
+# from ....dmbrl.modeling.utils import TensorStandardScaler
+# from ....dmbrl.modeling.layers import FC
+# from ....dmbrl.misc.DotmapUtils import *
+
+# test chemin relatif numéro 2
+from mujoco.Simulation.dmbrl.modeling.utils import TensorStandardScaler
+from mujoco.Simulation.dmbrl.modeling.layers import FC
+from mujoco.Simulation.dmbrl.misc.DotmapUtils import *
 
 
 class BNN:

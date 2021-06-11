@@ -8,9 +8,15 @@ import tensorflow as tf
 import numpy as np
 from scipy.io import savemat
 
-from .Controller import Controller
-from ...dmbrl.misc.DotmapUtils import get_required_argument
-from ...dmbrl.misc.optimizers import RandomOptimizer, CEMOptimizer
+# test chemin relatif numéro 1
+# from .Controller import Controller
+# from ...dmbrl.misc.DotmapUtils import get_required_argument
+# from ...dmbrl.misc.optimizers import RandomOptimizer, CEMOptimizer
+
+# test chemin relatif numéro 2
+from mujoco.Simulation.dmbrl.controllers.Controller import Controller
+from mujoco.Simulation.dmbrl.misc.DotmapUtils import get_required_argument
+from mujoco.Simulation.dmbrl.misc.optimizers import RandomOptimizer, CEMOptimizer
 
 
 class MPC(Controller):

@@ -7,9 +7,14 @@ import tensorflow as tf
 from dotmap import DotMap
 import gym
 
-from ...dmbrl.misc.DotmapUtils import get_required_argument
-from ...dmbrl.modeling.layers import FC
+# test chemin relatif numéro 1
+# from ...dmbrl.misc.DotmapUtils import get_required_argument
+# from ...dmbrl.modeling.layers import FC
 import mujoco.Simulation.dmbrl.env
+
+# test chemin relatif numéro 2
+from mujoco.Simulation.dmbrl.misc.DotmapUtils import get_required_argument
+from mujoco.Simulation.dmbrl.modeling.layers import FC
 
 
 class CartpoleConfigModule:

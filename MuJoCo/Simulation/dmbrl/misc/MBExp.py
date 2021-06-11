@@ -9,8 +9,13 @@ import numpy as np
 from scipy.io import savemat
 from dotmap import DotMap
 
-from ...dmbrl.misc.DotmapUtils import get_required_argument
-from ...dmbrl.misc.Agent import Agent
+# test chemin relatif numéro 1
+# from ...dmbrl.misc.DotmapUtils import get_required_argument
+# from ...dmbrl.misc.Agent import Agent
+
+# test chemin relatif numéro 2
+from mujoco.Simulation.dmbrl.misc.DotmapUtils import get_required_argument
+from mujoco.Simulation.dmbrl.misc.Agent import Agent
 
 
 class MBExperiment:

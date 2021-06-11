@@ -9,14 +9,14 @@ import pprint
 from dotmap import DotMap
 
 # test chemin relatif numéro 1
-from ..dmbrl.misc.MBExp import MBExperiment
-from ..dmbrl.controllers.MPC import MPC
-from ..dmbrl.config import create_config
+# from ..dmbrl.misc.MBExp import MBExperiment
+# from ..dmbrl.controllers.MPC import MPC
+# from ..dmbrl.config import create_config
 
 # test chemin relatif numéro 2
-# from mujoco.Simulation.dmbrl.misc.MBExp import MBExperiment
-# from mujoco.Simulation.dmbrl.controllers.MPC import MPC
-# from mujoco.Simulation.dmbrl.config import create_config
+from mujoco.Simulation.dmbrl.misc.MBExp import MBExperiment
+from mujoco.Simulation.dmbrl.controllers.MPC import MPC
+from mujoco.Simulation.dmbrl.config import create_config
 
 
 def main(env, ctrl_type, ctrl_args, overrides, logdir):

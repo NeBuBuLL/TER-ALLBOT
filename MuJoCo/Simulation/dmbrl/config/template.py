@@ -7,16 +7,21 @@ import tensorflow as tf
 from dotmap import DotMap
 import gym
 
-from ...dmbrl.misc.DotmapUtils import get_required_argument
-from ...dmbrl.modeling.layers import FC
+# test chemin relatif numéro 1
+# from ...dmbrl.misc.DotmapUtils import get_required_argument
+# from ...dmbrl.modeling.layers import FC
+
+# test chemin relatif numéro 2
+from mujoco.Simulation.dmbrl.misc.DotmapUtils import get_required_argument
+from mujoco.Simulation.dmbrl.modeling.layers import FC
 
 
 class EnvConfigModule:
-    ENV_NAME           = None
-    TASK_HORIZON       = None
-    NTRAIN_ITERS       = None
+    ENV_NAME = None
+    TASK_HORIZON = None
+    NTRAIN_ITERS = None
     NROLLOUTS_PER_ITER = None
-    PLAN_HOR           = None
+    PLAN_HOR = None
 
     def __init__(self):
         self.ENV = gym.make(self.ENV_NAME)
@@ -29,10 +34,10 @@ class EnvConfigModule:
                 "popsize": None
             },
             "CEM": {
-                "popsize":    None,
+                "popsize": None,
                 "num_elites": None,
-                "max_iters":  None,
-                "alpha":      None
+                "max_iters": None,
+                "alpha": None
             }
         }
         self.UPDATE_FNS = []
@@ -89,4 +94,3 @@ class EnvConfigModule:
 
 
 CONFIG_MODULE = EnvConfigModule
-

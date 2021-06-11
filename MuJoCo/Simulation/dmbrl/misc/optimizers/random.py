@@ -5,7 +5,11 @@ from __future__ import print_function
 import numpy as np
 import tensorflow as tf
 
-from .optimizer import Optimizer
+# test chemin relatif numéro 1
+# from .optimizer import Optimizer
+
+# test chemin relatif numéro 2
+from mujoco.Simulation.dmbrl.misc.optimizers.optimizer import Optimizer
 
 
 class RandomOptimizer(Optimizer):
