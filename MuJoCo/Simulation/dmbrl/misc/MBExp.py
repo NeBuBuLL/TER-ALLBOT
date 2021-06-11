@@ -3,9 +3,8 @@ from __future__ import print_function
 from __future__ import absolute_import
 
 import os
-from time import time, localtime, strftime
+from time import localtime, strftime
 
-import numpy as np
 from scipy.io import savemat
 from dotmap import DotMap
 

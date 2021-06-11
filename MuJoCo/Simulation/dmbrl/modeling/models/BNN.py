@@ -17,7 +17,6 @@ from scipy.io import savemat, loadmat
 # test chemin relatif numéro 2
 from mujoco.Simulation.dmbrl.modeling.utils import TensorStandardScaler
 from mujoco.Simulation.dmbrl.modeling.layers import FC
-from mujoco.Simulation.dmbrl.misc.DotmapUtils import *
 
 
 class BNN:

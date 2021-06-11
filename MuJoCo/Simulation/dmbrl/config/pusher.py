@@ -10,7 +10,6 @@ import gym
 # test chemin relatfi numéro 1
 # from ...dmbrl.misc.DotmapUtils import get_required_argument
 # from ...dmbrl.modeling.layers import FC
-import mujoco.Simulation.dmbrl.env
 
 # tes chemin relatif numéro 2
 from mujoco.Simulation.dmbrl.misc.DotmapUtils import get_required_argument
