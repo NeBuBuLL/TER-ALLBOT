@@ -1,1 +1,1 @@
-__all__ = ["dmbrl","img","script"]
+__all__ = ["dmbrl", "img", "scripts"]

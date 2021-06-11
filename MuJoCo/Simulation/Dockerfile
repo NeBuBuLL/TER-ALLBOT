@@ -35,10 +35,12 @@ RUN pip3 install pandas multipledispatch pytest
 RUN cd GPflow/ && pip install . --no-deps
 
 # Create copy of Deep MBRL repo and place in ~/handful-of-trials
-RUN cd ~ && git clone https://github.com/kchua/handful-of-trials.git
+#RUN cd ~ && git clone https://github.com/NeBuBuLL/TER-ALLBOT.git
+COPY . .
 
 # Environment setup
 RUN echo 'LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/x86_64-linux-gnu' >> /root/.bashrc
 RUN echo 'alias python=python3' >> /root/.bashrc
 
+RUN dir .
 CMD /bin/bash

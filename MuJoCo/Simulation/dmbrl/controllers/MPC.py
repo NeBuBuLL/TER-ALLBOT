@@ -9,8 +9,8 @@ import numpy as np
 from scipy.io import savemat
 
 from .Controller import Controller
-from dmbrl.misc.DotmapUtils import get_required_argument
-from dmbrl.misc.optimizers import RandomOptimizer, CEMOptimizer
+from ...dmbrl.misc.DotmapUtils import get_required_argument
+from ...dmbrl.misc.optimizers import RandomOptimizer, CEMOptimizer
 
 
 class MPC(Controller):

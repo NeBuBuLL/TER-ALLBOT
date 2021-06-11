@@ -7,7 +7,7 @@ import tensorflow as tf
 import numpy as np
 import gpflow
 
-from dmbrl.misc.DotmapUtils import get_required_argument
+from ....dmbrl.misc.DotmapUtils import get_required_argument
 
 
 class TFGP:

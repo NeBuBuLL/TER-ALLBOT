@@ -7,9 +7,9 @@ import tensorflow as tf
 from dotmap import DotMap
 import gym
 
-from dmbrl.misc.DotmapUtils import get_required_argument
-from dmbrl.modeling.layers import FC
-import dmbrl.env
+from ...dmbrl.misc.DotmapUtils import get_required_argument
+from ...dmbrl.modeling.layers import FC
+import mujoco.Simulation.dmbrl.env
 
 
 class HalfCheetahConfigModule:

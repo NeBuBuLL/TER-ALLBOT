@@ -8,7 +8,8 @@ import numpy as np
 from gym import utils
 from gym.envs.mujoco import mujoco_env
 
-class robotEnv(mujoco_env.MujocoEnv, utils.EzPickle):
+
+class RobotEnv(mujoco_env.MujocoEnv, utils.EzPickle):
     def __init__(self):
         self.prev_qpos = None
         dir_path = os.path.dirname(os.path.realpath(__file__))

@@ -23,3 +23,9 @@ register(
     id='MBRLHalfCheetah-v0',
     entry_point='dmbrl.env.half_cheetah:HalfCheetahEnv'
 )
+
+
+register(
+    id='robot',
+    entry_point='dmbrl.env.robot:RobotEnv'
+)

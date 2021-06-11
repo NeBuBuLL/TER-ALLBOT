@@ -9,8 +9,8 @@ import numpy as np
 from scipy.io import savemat
 from dotmap import DotMap
 
-from dmbrl.misc.DotmapUtils import get_required_argument
-from dmbrl.misc.Agent import Agent
+from ...dmbrl.misc.DotmapUtils import get_required_argument
+from ...dmbrl.misc.Agent import Agent
 
 
 class MBExperiment:

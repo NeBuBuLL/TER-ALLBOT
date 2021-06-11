@@ -9,7 +9,7 @@ import importlib.util
 import gpflow
 from dotmap import DotMap
 
-from dmbrl.modeling.models import NN, BNN, TFGP
+from ...dmbrl.modeling.models import NN, BNN, TFGP
 
 
 def create_config(env_name, ctrl_type, ctrl_args, overrides, logdir):
