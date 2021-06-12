@@ -13,7 +13,7 @@ from dotmap import DotMap
 # from ...dmbrl.misc.Agent import Agent
 
 # test chemin relatif numéro 2
-from mujoco.Simulation.dmbrl.misc.DotmapUtils import get_required_argument
+from MuJoCo.Simulation.dmbrl.misc.DotmapUtils import get_required_argument
 from mujoco.Simulation.dmbrl.misc.Agent import Agent
 
 
