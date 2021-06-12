@@ -14,9 +14,9 @@ from dotmap import DotMap
 # from ..dmbrl.config import create_config
 
 # test chemin relatif numéro 2
-from mujoco.Simulation.dmbrl.misc.MBExp import MBExperiment
-from mujoco.Simulation.dmbrl.controllers.MPC import MPC
-from mujoco.Simulation.dmbrl.config import create_config
+from MuJoCo.Simulation.dmbrl.misc.MBExp import MBExperiment
+from MuJoCo.Simulation.dmbrl.controllers.MPC import MPC
+from MuJoCo.Simulation.dmbrl.config import create_config
 
 
 def main(env, ctrl_type, ctrl_args, overrides, model_dir, logdir):

@@ -12,7 +12,7 @@ import gym
 # from ...dmbrl.modeling.layers import FC
 
 # test chemin relatif numéro 2
-from mujoco.Simulation.dmbrl.misc.DotmapUtils import get_required_argument
+from MuJoCo.Simulation.dmbrl.misc.DotmapUtils import get_required_argument
 
 
 class EnvConfigModule:

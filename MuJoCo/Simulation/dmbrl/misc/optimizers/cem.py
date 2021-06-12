@@ -10,7 +10,7 @@ import scipy.stats as stats
 # from .optimizer import Optimizer
 
 # test chemin relatif numéro 2
-from mujoco.Simulation.dmbrl.misc.optimizers.optimizer import Optimizer
+from MuJoCo.Simulation.dmbrl.misc.optimizers.optimizer import Optimizer
 
 
 class CEMOptimizer(Optimizer):

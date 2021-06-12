@@ -14,7 +14,7 @@ from dotmap import DotMap
 
 # test chemin relatif numéro 2
 from MuJoCo.Simulation.dmbrl.misc.DotmapUtils import get_required_argument
-from mujoco.Simulation.dmbrl.misc.Agent import Agent
+from MuJoCo.Simulation.dmbrl.misc.Agent import Agent
 
 
 class MBExperiment:

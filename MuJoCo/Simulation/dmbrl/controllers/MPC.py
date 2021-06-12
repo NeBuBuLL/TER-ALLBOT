@@ -14,9 +14,9 @@ from scipy.io import savemat
 # from ...dmbrl.misc.optimizers import RandomOptimizer, CEMOptimizer
 
 # test chemin relatif numéro 2
-from mujoco.Simulation.dmbrl.controllers.Controller import Controller
-from mujoco.Simulation.dmbrl.misc.DotmapUtils import get_required_argument
-from mujoco.Simulation.dmbrl.misc.optimizers import RandomOptimizer, CEMOptimizer
+from MuJoCo.Simulation.dmbrl.controllers.Controller import Controller
+from MuJoCo.Simulation.dmbrl.misc.DotmapUtils import get_required_argument
+from MuJoCo.Simulation.dmbrl.misc.optimizers import RandomOptimizer, CEMOptimizer
 
 
 class MPC(Controller):
