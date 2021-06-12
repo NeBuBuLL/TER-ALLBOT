@@ -13,7 +13,7 @@ class RobotEnv(mujoco_env.MujocoEnv, utils.EzPickle):
     def __init__(self):
         self.prev_qpos = None
         dir_path = os.path.dirname(os.path.realpath(__file__))
-        mujoco_env.MujocoEnv.__init__(self, '%s../../../robot.xml' % dir_path, 5)
+        mujoco_env.MujocoEnv.__init__(self, '%s/assets/robot.xml' % dir_path, 5)
         utils.EzPickle.__init__(self)
 
     def _step(self, action):
