@@ -1,3 +1,5 @@
+__all__ = ['assets', 'cartpole', 'half_cheetah', 'pusher', 'reacher', 'robot']
+
 from gym.envs.registration import register
 
 
