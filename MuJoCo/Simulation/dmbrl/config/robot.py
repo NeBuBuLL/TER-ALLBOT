@@ -14,7 +14,7 @@ import gym
 # test chemin relatif numéro 2
 from MuJoCo.Simulation.dmbrl.misc.DotmapUtils import get_required_argument
 from MuJoCo.Simulation.dmbrl.modeling.layers import FC
-
+from MuJoCo.Simulation.dmbrl.env.robot import RobotEnv
 
 class RobotConfigModule:
     ENV_NAME = "MBRLRobot-v0"
