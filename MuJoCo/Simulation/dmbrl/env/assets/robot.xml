@@ -84,44 +84,44 @@
     <!--body -->
     <body name="TORSO">
         <joint group="0" armature="0" damping="0" limited="false" name="root" type="free" pos="0 0 0"/>
-        <geom type="mesh" mesh="torso"/>
+        <geom type="mesh" mesh="torso" density="1120"/>
         <!--FR leg-->
         <body name="FR_LEG">
             <joint group="1" name="hip_fr_leg" type="hinge" axis="0 0 1" class="front_shoulder" pos="1.98 -1.35 1.5"/>
              <!-- replace by: 
                 <joint name="hip_fr_leg" type="hinge" class="pitch" or "yaw" />
              -->
-            <geom type="mesh" mesh="FR_leg"/>
+            <geom type="mesh" mesh="FR_leg" density="230"/>
             <body>
                 <joint group="2" name="hip_fr_foot" type="hinge" axis="1 0 0" class="knee" pos="1.75 -3.3 2"/>
-                <geom type="mesh" mesh="FR_foot"/>
+                <geom type="mesh" mesh="FR_foot" density="200"/>
             </body>
         </body>
         <!--FL leg-->
         <body name="FL_LEG">
             <joint group="1" name="hip_fl_leg" type="hinge" axis="0 0 1" class="back_shoulder" pos="1.98 1.35 1.5"/>
-            <geom type="mesh" mesh="FL_leg"/>
+            <geom type="mesh" mesh="FL_leg" density="230"/>
             <body>
                 <joint group="2" name="hip_fl_foot" type="hinge" axis="1 0 0" class="knee" pos="1.75 3.3 2"/>
-                <geom type="mesh" mesh="FL_foot"/>
+                <geom type="mesh" mesh="FL_foot" density="200"/>
             </body>
         </body>
         <!--BR leg-->
         <body name="BR_LEG">
             <joint group="1" name="hip_br_leg" type="hinge" axis="0 0 1" class="back_shoulder" pos="-1.98 -1.35 1.5"/>
-            <geom type="mesh" mesh="BR_leg"/>
+            <geom type="mesh" mesh="BR_leg" density="230"/>
             <body>
                 <joint group="2" name="hip_br_foot" type="hinge" axis="-1 0 0" class="knee" pos="-1.75 -3.3 2"/>
-                <geom type="mesh" mesh="BR_foot"/>
+                <geom type="mesh" mesh="BR_foot" density="200"/>
             </body>
         </body>
         <!--BL leg-->
         <body name="BL_LEG">
             <joint group="1" name="hip_bl_leg" type="hinge" axis="0 0 1" class="front_shoulder" pos="-1.98 1.35 1.5"/>
-            <geom type="mesh" mesh="BL_leg"/>
+            <geom type="mesh" mesh="BL_leg" density="230"/>
             <body>
                 <joint group="2" name="hip_bl_foot" type="hinge" axis="-1 0 0"  class="knee" pos="-1.75 3.3 2"/>
-                <geom type="mesh" mesh="BL_foot"/>
+                <geom type="mesh" mesh="BL_foot" density="200"/>
             </body>
         </body>
     </body>
