@@ -9,24 +9,24 @@
     <hfield name="terrain" ncol="201" nrow="201" size="30 30 5 .1"/>
 
     <!--load the main body part of the robot-->
-    <mesh name="torso" scale="0.05 0.05 0.05"  file="..\..\..\..\..\modele3D\torso.stl"/>
+    <mesh name="torso" scale="0.05 0.05 0.05"  file="../../../../../modele3D/torso.stl"/>
 
     <!--load the first leg of the robot-->
-    <mesh name="FL_leg" scale="0.05 0.05 0.05" file="..\..\..\..\..\modele3D\FL_Leg.stl"/>
-    <mesh name="FL_foot" scale="0.05 0.05 0.05" file="..\..\..\..\..\modele3D\FL_Foot.stl"/>
+    <mesh name="FL_leg" scale="0.05 0.05 0.05" file="../../../../../modele3D/FL_Leg.stl"/>
+    <mesh name="FL_foot" scale="0.05 0.05 0.05" file="../../../../../modele3D/FL_Foot.stl"/>
     
 
     <!--load the second leg of the robot-->
-    <mesh name="FR_leg" scale="0.05 0.05 0.05" file="..\..\..\..\..\modele3D\FR_Leg.stl"/>
-    <mesh name="FR_foot" scale="0.05 0.05 0.05" file="..\..\..\..\..\modele3D\FR_Foot.stl"/>
+    <mesh name="FR_leg" scale="0.05 0.05 0.05" file="../../../../../modele3D/FR_Leg.stl"/>
+    <mesh name="FR_foot" scale="0.05 0.05 0.05" file="../../../../../modele3D/FR_Foot.stl"/>
 
     <!--load the third leg of the robot-->
-    <mesh name="BL_leg" scale="0.05 0.05 0.05" file="..\..\..\..\..\modele3D\BL_Leg.stl"/>
-    <mesh name="BL_foot" scale="0.05 0.05 0.05" file="..\..\..\..\..\modele3D\BL_Foot.stl"/>
+    <mesh name="BL_leg" scale="0.05 0.05 0.05" file="../../../../../modele3D/BL_Leg.stl"/>
+    <mesh name="BL_foot" scale="0.05 0.05 0.05" file="../../../../../modele3D/BL_Foot.stl"/>
     
     <!--load the fourth leg of the robot-->
-    <mesh name="BR_leg" scale="0.05 0.05 0.05" file="..\..\..\..\..\modele3D\BR_Leg.stl"/>
-    <mesh name="BR_foot" scale="0.05 0.05 0.05" file="..\..\..\..\..\modele3D\BR_Foot.stl" />
+    <mesh name="BR_leg" scale="0.05 0.05 0.05" file="../../../../../modele3D/BR_Leg.stl"/>
+    <mesh name="BR_foot" scale="0.05 0.05 0.05" file="../../../../../modele3D/BR_Foot.stl" />
 
   </asset>
 
