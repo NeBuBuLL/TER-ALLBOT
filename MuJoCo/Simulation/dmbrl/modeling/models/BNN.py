@@ -5,6 +5,8 @@ from __future__ import absolute_import
 import os
 
 import tensorflow as tf
+from tensorflow import keras
+
 import numpy as np
 from tqdm import trange
 from scipy.io import savemat, loadmat
@@ -191,7 +193,7 @@ class BNN:
             self.mse_loss = self._compile_losses(self.sy_train_in, self.sy_train_targ, inc_var_loss=False)
 
             #self.train_op = self.optimizer.minimize(train_loss, var_list=self.optvars, tape=tf.GradientTape())
-            self.train_op = tf.compat.v1.train.Optimizer.minimize(train_loss, var_list=self.optvars)
+            self.train_op = tf.compat.v1.train.Optimizer.minimize(self.optimizer, loss=train_loss, var_list=self.optvars)
 
         # Initialize all variables
         self.sess.run(tf.compat.v1.variables_initializer(self.optvars + self.nonoptvars + self.optimizer.variables()))
