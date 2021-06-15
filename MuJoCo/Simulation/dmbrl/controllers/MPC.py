@@ -142,10 +142,10 @@ class MPC(Controller):
         )
         if self.model.is_tf_model:
             self.sy_cur_obs = tf.Variable(np.zeros(self.dO), dtype=tf.float32)
-            self.ac_seq = tf.placeholder(shape=[1, self.plan_hor*self.dU], dtype=tf.float32)
+            self.ac_seq = tf.compat.v1.placeholder(shape=[1, self.plan_hor*self.dU], dtype=tf.float32)
             self.pred_cost, self.pred_traj = self._compile_cost(self.ac_seq, get_pred_trajs=True)
             self.optimizer.setup(self._compile_cost, True)
-            self.model.sess.run(tf.variables_initializer([self.sy_cur_obs]))
+            self.model.sess.run(tf.compat.v1.variables_initializer([self.sy_cur_obs]))
         else:
             raise NotImplementedError()
 
@@ -270,6 +270,9 @@ class MPC(Controller):
 
     def _compile_cost(self, ac_seqs, get_pred_trajs=False):
         t, nopt = tf.constant(0), tf.shape(ac_seqs)[0]
+        print("nopt ", type(nopt))
+
+        print("npart ", type(self.npart))
         init_costs = tf.zeros([nopt, self.npart])
         ac_seqs = tf.reshape(ac_seqs, [-1, self.plan_hor, self.dU])
         ac_seqs = tf.reshape(tf.tile(

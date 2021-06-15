@@ -37,7 +37,7 @@ class CartpoleEnv(mujoco_env.MujocoEnv, utils.EzPickle):
         return self.get_obs()
 
     def get_obs(self):
-        return np.concatenate([self.model.data.qpos, self.model.data.qvel]).ravel()
+        return np.concatenate([self.data.qpos, self.data.qvel]).ravel()
 
     @staticmethod
     def _get_ee_pos(x):

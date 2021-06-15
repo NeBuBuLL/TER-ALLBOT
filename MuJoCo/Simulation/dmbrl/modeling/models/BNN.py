@@ -6,6 +6,8 @@ import os
 
 import tensorflow as tf
 from tensorflow import keras
+from tensorflow.keras.optimizers import Adam
+
 
 import numpy as np
 from tqdm import trange
@@ -190,11 +192,17 @@ class BNN:
             train_loss = tf.reduce_sum(self._compile_losses(self.sy_train_in, self.sy_train_targ, inc_var_loss=True))
             train_loss += tf.add_n(self.decays)
             train_loss += 0.01 * tf.reduce_sum(self.max_logvar) - 0.01 * tf.reduce_sum(self.min_logvar)
+            print(type(train_loss))
             self.mse_loss = self._compile_losses(self.sy_train_in, self.sy_train_targ, inc_var_loss=False)
-
             #self.train_op = self.optimizer.minimize(train_loss, var_list=self.optvars, tape=tf.GradientTape())
-            self.train_op = tf.compat.v1.train.Optimizer.minimize(self.optimizer, loss=train_loss, var_list=self.optvars)
+            self.train_op = tf.compat.v1.train.Optimizer.minimize(self.optimizer,
+                                                                  loss=train_loss,
+                                                                  var_list=self.optvars)
 
+            #self.train_op = tf.compat.v1.train.Optimizer.apply_gradients(
+                #tf.compat.v1.train.Optimizer.compute_gradients(loss=train_loss, var_list=self.optvars,
+                                                               #gate_gradients=1,
+                                                               #colocate_gradients_with_ops=False, grad_loss=None))
         # Initialize all variables
         self.sess.run(tf.compat.v1.variables_initializer(self.optvars + self.nonoptvars + self.optimizer.variables()))
 

@@ -84,7 +84,7 @@ class RobotConfigModule:
             model.add(FC(200, activation="swish", weight_decay=0.000075))
             model.add(FC(200, activation="swish", weight_decay=0.000075))
             model.add(FC(self.MODEL_OUT, weight_decay=0.0001))
-        model.finalize(tf.optimizers.Adam, {"learning_rate": 0.001})
+        model.finalize(tf.compat.v1.train.AdamOptimizer, {"learning_rate": 0.001})
         return model
 
     def gp_constructor(self, model_init_cfg):

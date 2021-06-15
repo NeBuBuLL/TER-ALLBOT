@@ -46,9 +46,9 @@ class CEMOptimizer(Optimizer):
 
         if self.tf_sess is not None:
             with self.tf_sess.graph.as_default():
-                with tf.variable_scope("CEMSolver") as scope:
-                    self.init_mean = tf.placeholder(dtype=tf.float32, shape=[sol_dim])
-                    self.init_var = tf.placeholder(dtype=tf.float32, shape=[sol_dim])
+                with tf.compat.v1.variable_scope("CEMSolver") as scope:
+                    self.init_mean = tf.compat.v1.placeholder(dtype=tf.float32, shape=[sol_dim])
+                    self.init_var = tf.compat.v1.placeholder(dtype=tf.float32, shape=[sol_dim])
 
         self.num_opt_iters, self.mean, self.var = None, None, None
         self.tf_compatible, self.cost_function = None, None
