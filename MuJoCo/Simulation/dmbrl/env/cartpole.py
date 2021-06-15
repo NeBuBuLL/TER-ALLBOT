@@ -17,9 +17,9 @@ class CartpoleEnv(mujoco_env.MujocoEnv, utils.EzPickle):
         dir_path = os.path.dirname(os.path.realpath(__file__))
         mujoco_env.MujocoEnv.__init__(self, '%s/assets/cartpole.xml' % dir_path, 2)
 
-    def _step(self, a):
+    def step(self, a):
         self.do_simulation(a, self.frame_skip)
-        ob = self._get_obs()
+        ob = self.get_obs()
 
         cost_lscale = CartpoleEnv.PENDULUM_LENGTH
         reward = np.exp(
@@ -30,13 +30,13 @@ class CartpoleEnv(mujoco_env.MujocoEnv, utils.EzPickle):
         done = False
         return ob, reward, done, {}
 
-    def reset_model(self):
+    def reset(self):
         qpos = self.init_qpos + np.random.normal(0, 0.1, np.shape(self.init_qpos))
         qvel = self.init_qvel + np.random.normal(0, 0.1, np.shape(self.init_qvel))
         self.set_state(qpos, qvel)
-        return self._get_obs()
+        return self.get_obs()
 
-    def _get_obs(self):
+    def get_obs(self):
         return np.concatenate([self.model.data.qpos, self.model.data.qvel]).ravel()
 
     @staticmethod

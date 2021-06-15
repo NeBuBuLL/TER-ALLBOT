@@ -27,9 +27,9 @@ class RobotConfigModule:
 
     def __init__(self):
         self.ENV = gym.make(self.ENV_NAME)
-        cfg = tf.ConfigProto()
+        cfg = tf.compat.v1.ConfigProto()
         cfg.gpu_options.allow_growth = True
-        self.SESS = tf.Session(config=cfg)
+        self.SESS = tf.compat.v1.Session(config=cfg)
         self.NN_TRAIN_CFG = {"epochs": 5}
         self.OPT_CFG = {
             "Random": {
@@ -84,7 +84,7 @@ class RobotConfigModule:
             model.add(FC(200, activation="swish", weight_decay=0.000075))
             model.add(FC(200, activation="swish", weight_decay=0.000075))
             model.add(FC(self.MODEL_OUT, weight_decay=0.0001))
-        model.finalize(tf.train.AdamOptimizer, {"learning_rate": 0.001})
+        model.finalize(tf.optimizers.Adam, {"learning_rate": 0.001})
         return model
 
     def gp_constructor(self, model_init_cfg):

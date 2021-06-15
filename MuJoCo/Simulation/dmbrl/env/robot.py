@@ -14,11 +14,12 @@ class RobotEnv(mujoco_env.MujocoEnv, utils.EzPickle):
         self.prev_qpos = None
         dir_path = os.path.dirname(os.path.realpath(__file__))
         print(dir_path)
+
         mujoco_env.MujocoEnv.__init__(self, '%s/assets/robot.xml' % dir_path, 5)
         utils.EzPickle.__init__(self)
 
     def step(self, action):
-        self.prev_qpos = np.copy(self.model.data.qpos.flat)
+        self.prev_qpos = np.copy(self.data.qpos.flat)
         self.do_simulation(action, self.frame_skip)
         ob = self.get_obs()
 
@@ -31,16 +32,16 @@ class RobotEnv(mujoco_env.MujocoEnv, utils.EzPickle):
 
     def get_obs(self):
         return np.concatenate([
-            (self.model.data.qpos.flat[:1] - self.prev_qpos[:1]) / self.dt,
-            self.model.data.qpos.flat[1:],
-            self.model.data.qvel.flat,
+            (self.data.qpos.flat[:1] - self.prev_qpos[:1]) / self.dt,
+            self.data.qpos.flat[1:],
+            self.data.qvel.flat,
         ])
 
     def reset_model(self):
         qpos = self.init_qpos + np.random.normal(loc=0, scale=0.001, size=self.model.nq)
         qvel = self.init_qvel + np.random.normal(loc=0, scale=0.001, size=self.model.nv)
         self.set_state(qpos, qvel)
-        self.prev_qpos = np.copy(self.model.data.qpos.flat)
+        self.prev_qpos = np.copy(self.data.qpos.flat)
         return self.get_obs()
 
     def viewer_setup(self):

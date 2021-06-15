@@ -67,7 +67,8 @@ class FC:
         # Get raw layer outputs
         if len(input_tensor.shape) == 2:
             raw_output = tf.einsum("ij,ajk->aik", input_tensor, self.weights) + self.biases
-        elif len(input_tensor.shape) == 3 and input_tensor.shape[0].value == self.ensemble_size:
+        # ATTENTION ON a REMOVE .value de input_tensor.shape[0]
+        elif len(input_tensor.shape) == 3 and input_tensor.shape[0] == self.ensemble_size:
             raw_output = tf.matmul(input_tensor, self.weights) + self.biases
         else:
             raise ValueError("Invalid input dimension.")
@@ -112,12 +113,12 @@ class FC:
             raise RuntimeError("Cannot construct variables without fully specifying input and output dimensions.")
 
         # Construct variables
-        self.weights = tf.get_variable(
+        self.weights = tf.compat.v1.get_variable(
             "FC_weights",
             shape=[self.ensemble_size, self.input_dim, self.output_dim],
-            initializer=tf.truncated_normal_initializer(stddev=1/(2*np.sqrt(self.input_dim)))
+            initializer=tf.compat.v1.truncated_normal_initializer(stddev=1/(2*np.sqrt(self.input_dim)))
         )
-        self.biases = tf.get_variable(
+        self.biases = tf.compat.v1.get_variable(
             "FC_biases",
             shape=[self.ensemble_size, 1, self.output_dim],
             initializer=tf.constant_initializer(0.0)
