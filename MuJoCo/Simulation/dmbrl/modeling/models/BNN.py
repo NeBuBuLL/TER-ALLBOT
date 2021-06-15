@@ -9,6 +9,7 @@ import numpy as np
 from tqdm import trange
 from scipy.io import savemat, loadmat
 
+
 # test chemin relatif numéro 1
 # from ....dmbrl.modeling.utils import TensorStandardScaler
 # from ....dmbrl.modeling.layers import FC
@@ -45,9 +46,9 @@ class BNN:
         self.model_dir = params.get('model_dir', None)
 
         if params.get('sess', None) is None:
-            config = tf.ConfigProto()
+            config = tf.compat.v1.ConfigProto()
             # config.gpu_options.allow_growth = True
-            self._sess = tf.Session(config=config)
+            self._sess = tf.compat.v1.Session(config=config)
         else:
             self._sess = params.get('sess')
 
@@ -189,7 +190,8 @@ class BNN:
             train_loss += 0.01 * tf.reduce_sum(self.max_logvar) - 0.01 * tf.reduce_sum(self.min_logvar)
             self.mse_loss = self._compile_losses(self.sy_train_in, self.sy_train_targ, inc_var_loss=False)
 
-            self.train_op = self.optimizer.minimize(train_loss, var_list=self.optvars)
+            #self.train_op = self.optimizer.minimize(train_loss, var_list=self.optvars, tape=tf.GradientTape())
+            self.train_op = tf.compat.v1.train.Optimizer.minimize(train_loss, var_list=self.optvars)
 
         # Initialize all variables
         self.sess.run(tf.compat.v1.variables_initializer(self.optvars + self.nonoptvars + self.optimizer.variables()))
